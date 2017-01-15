@@ -13,3 +13,43 @@ since it is written in vanilla.js also supporting legacy browsers.
 
 try it out: https://thibaultjanbeyer.github.io/ComboBox.js/  
 play with it: http://codepen.io/ThibaultJanBeyer/pen/rjLgEL
+
+# Setup
+
+Add ComboBox.js to your project:
+
+```html
+<script src="https://thibaultjanbeyer.github.io/ComboBox.js/cb.js"></script>
+```
+
+Write your html:
+- (recommended) keep this structure
+- (mandatory) make sure that there is a wrapping container
+
+```html
+<div id="MyComboBox">
+  <input type="text">
+    <select>
+      <option>Black</option>
+      <option>Blue</option>
+      <option>Red</option> 
+      <option>Orange</option>
+    </select>
+</div>
+```
+
+Turn it into a ComboBox:
+
+```javascript
+var element = document.getElementById('MyComboBox');
+var cb = new ComboBox(element, false);
+```
+
+Tadaaa! Enjoy your ComboBox :)
+
+# Last Words
+
+Don’t forget to star this repo and follow me on [github](https://github.com/ThibaultJanBeyer), [twitter](https://twitter.com/ThibaultBeyer) or [my blog](blog.thibaultjanbeyer.com) if you like the ComboBox.  
+Found a bug? Open an [issue](https://github.com/ThibaultJanBeyer/ComboBox.js/issues) or make a pull requests!
+
+
