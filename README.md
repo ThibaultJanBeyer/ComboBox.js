@@ -10,3 +10,6 @@ since it is written in vanilla.js also supporting legacy browsers.
 |native code|√ (vanillajs)|√ (html5)|X (requires dojo)|
 |lightweight|√|√|X|
 |accessible|√|√|√|
+
+try it out: https://thibaultjanbeyer.github.io/ComboBox.js/  
+play with it: http://codepen.io/ThibaultJanBeyer/pen/rjLgEL
