@@ -19,7 +19,7 @@ play with it: http://codepen.io/ThibaultJanBeyer/pen/rjLgEL
 Add ComboBox.js to your project:
 
 ```html
-<script src="https://thibaultjanbeyer.github.io/ComboBox.js/cb.js"></script>
+<script src="https://thibaultjanbeyer.github.io/ComboBox.js/cb.min.js"></script>
 ```
 
 Write your html:
