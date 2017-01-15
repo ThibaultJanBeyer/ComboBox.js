@@ -7,7 +7,7 @@ since it is written in plain vanilla JavaScript. It was written with accessibili
 |feature|**ComboBox.js**|datalist|dojo ComboBox|
 |---|---|---|---|
 |browser support|√|X|√|
-|native code|√ (vanillajs)|√ (html5)|X (requires dojo)|
+|no dependency|√|√ (html5)|X (requires dojo)|
 |lightweight|√|√|X|
 |accessible|√|√|√|
 
