@@ -14,6 +14,11 @@ var ComboBox = function(container, customStyles) {
   this.input.className += ' cb--input';
   this.select = container.getElementsByTagName('select')[0];
   this.select.className += ' cb--select';
+
+  var optionZero = document.createElement('option');
+  optionZero.innerHTML = '---';
+  this.select.insertBefore(optionZero, this.select.options[0]);
+
   this.options = this.select.options;
   this.select.value = this.options[0].innerHTML;
   this.select.value = [];
