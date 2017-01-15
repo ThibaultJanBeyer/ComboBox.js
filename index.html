@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>ComboBox – Combination of Input and Select form-fields</title>
+  <style>
+    /* 
+      These can be used to style the combobox elements.
+      You can set the second argument of the constructor
+      in JavaScript to false for full controll
+
+      .cb--container {}
+      .cb--input {}
+      .cb--select {}
+    */
+  </style>
+</head>
+<body>
+  <!-- 
+    Since the <datalist> element is not primetime ready yet 
+    (due to lack of browser support) I made this neat ComboBox
+  -->
+  <div class="ComboBox">
+    <input type="text">
+      <select>
+        <option>---</option>
+        <option>Black</option>
+        <option>Blue</option>
+        <option>Red</option> 
+        <option>Orange</option>
+        <option>Yellow</option>
+        <option>Green</option>
+        <option>Grey</option>
+        <option>Pink</option>
+        <option>Purple</option>
+      </select>
+  </div>
+
+  <input type="text" value="some other input" />
+
+  <script src="ComboBox.js"></script>
+  <script>
+    var element = document.getElementsByClassName('ComboBox')[0];
+    var cb = new ComboBox(element, false);
+  </script>
+
+</body>
+</html>
