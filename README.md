@@ -49,7 +49,7 @@ Tadaaa! Enjoy your ComboBox :)
 
 # Last Words
 
-Don’t forget to star this repo and follow me on [github](https://github.com/ThibaultJanBeyer), [twitter](https://twitter.com/ThibaultBeyer) or [my blog](blog.thibaultjanbeyer.com) if you like the ComboBox.  
+Don’t forget to star this repo and follow me on [github](https://github.com/ThibaultJanBeyer), [twitter](https://twitter.com/ThibaultBeyer) or [my blog](http://blog.thibaultjanbeyer.com) if you like the ComboBox.  
 Found a bug? Open an [issue](https://github.com/ThibaultJanBeyer/ComboBox.js/issues) or make a pull requests!
 
 
