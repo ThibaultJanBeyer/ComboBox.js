@@ -9,3 +9,4 @@ since it is written in vanilla.js also supporting legacy browsers.
 |browser support|√|X|√|
 |native code|√ (vanillajs)|√ (html5)|X (requires dojo)|
 |lightweight|√|√|X|
+|accessible|√|√|√|
