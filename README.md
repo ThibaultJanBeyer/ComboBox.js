@@ -16,13 +16,13 @@ play with it: http://codepen.io/ThibaultJanBeyer/pen/rjLgEL
 
 # Setup
 
-Add ComboBox.js to your project:
+##Add ComboBox.js to your project:
 
 ```html
 <script src="https://thibaultjanbeyer.github.io/ComboBox.js/cb.min.js"></script>
 ```
 
-Write your html:
+##Write your html:
 - (recommended) keep this structure
 - (mandatory) make sure that there is a wrapping container
 
@@ -38,7 +38,7 @@ Write your html:
 </div>
 ```
 
-Turn it into a ComboBox:
+##Turn it into a ComboBox:
 
 ```javascript
 var element = document.getElementById('MyComboBox');
@@ -46,6 +46,8 @@ var cb = new ComboBox(element, false);
 ```
 
 Tadaaa! Enjoy your ComboBox :)
+
+
 
 # Last Words
 
