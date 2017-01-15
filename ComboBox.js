@@ -105,12 +105,14 @@ ComboBox.prototype.getKey = function(e) {
 };
 
 ComboBox.prototype.hideSelect = function() {
+  this.select.style.pointerEvents = 'none';
   this.select.style.opacity = 0;
   this.select.tabIndex = -1;
   return this;
 };
 
 ComboBox.prototype.showSelect = function() {
+  this.select.style.pointerEvents = 'all';
   this.select.style.opacity = 1;
   this.select.tabIndex = 0;
   return this;
@@ -124,27 +126,24 @@ ComboBox.prototype.createVisualHint = function() {
 };
 
 ComboBox.prototype.setStyles = function() {
-  this.container.style =
-    'display: inline-block;'+
-    'position: relative;';
-  this.input.style =
-    'box-sizing: border-box;'+
-    'height: 100%;'+
-    'width: 100%;';
-  this.select.style =
-    'border: 1px solid lightgrey;'+
-    'border-top: 0;'+
-    'left: 0;'+
-    'opacity: 0;'+
-    'position: absolute;'+
-    'top: 100%;'+
-    'width: 100%;';
-  this.hint.style = 
-    'font-size: 8px;'+
-    'pointer-events: none;'+
-    'position: absolute;'+
-    'right: 5px;'+
-    'top: 5px;';
+  this.container.style.display = 'inline-block';
+  this.container.style.position = 'relative';
+  this.input.style.boxSizing = 'border-box';
+  this.input.style.height = '100%';
+  this.input.style.width = '100%';
+  this.select.style.border = '1px solid lightgrey';
+  this.select.style.borderTop = '0';
+  this.select.style.left = '0';
+  this.select.style.opacity = '0';
+  this.select.style.pointerEvents = '0';
+  this.select.style.position = 'absolute';
+  this.select.style.top = '100%';
+  this.select.style.width = '100%';
+  this.hint.style.fontSize = '8px';
+  this.hint.style.pointerEvents = 'none';
+  this.hint.style.position = 'absolute';
+  this.hint.style.right = '5%';
+  this.hint.style.top = '25%';
   
   // this is inportant to get a list instead of a dropdown
   this.select.size = 4;
