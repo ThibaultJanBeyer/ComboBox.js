@@ -25,6 +25,9 @@ var ComboBox = function(container, customStyles) {
   this.select.value = this.options[0].innerHTML;
   this.select.value = [];
 
+  this.input.setAttribute('aria-label', 'Special inputfield with '+this.options.length+' prefilled options available, use the down arrow key to chose one or write your own text.');
+  this.select.setAttribute('aria-hidden', 'true');
+
   this.hideSelect();
   this.addEventListeners();
   this.createVisualHint();
@@ -48,6 +51,7 @@ ComboBox.prototype.addEventListeners = function() {
 ComboBox.prototype.handleInput = function(e) {
   var code = this.getKey(e);
   if(code === 'ArrowDown') {
+    this.select.setAttribute('aria-hidden', 'false');
     this.select.focus();
   } else if(code === 'Escape') {
     this.hideSelect();
@@ -84,6 +88,7 @@ ComboBox.prototype.isTextInOptions = function(text, options) {
 ComboBox.prototype.handleSelection = function(e) {
   var code = this.getKey(e);
   if(code === 'Enter' || code === 'Escape') {
+    this.select.setAttribute('aria-hidden', 'true');
     this.select.blur();
   } else if(e.target.value.substring(0,3) != '---') {
     this.input.value = e.target.value;
@@ -120,6 +125,7 @@ ComboBox.prototype.showSelect = function() {
 
 ComboBox.prototype.createVisualHint = function() {
   this.hint = document.createElement('span');
+  this.hint.setAttribute('aria-hidden', 'true');
   this.hint.className = 'cb--hint';
   this.hint.innerHTML = '▼';
   this.container.insertBefore(this.hint, this.input);

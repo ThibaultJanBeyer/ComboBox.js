@@ -2,7 +2,7 @@
 ComboBox is a combination of input and select form-fields.
 
 similar to the [datalist element in html5]([https://developer.mozilla.org/en/docs/Web/HTML/Element/datalist) or the [ComboBox dijit in dojo](https://dojotoolkit.org/reference-guide/1.10/dijit/form/ComboBox.html) but better:  
-since it is written in vanilla.js also supporting legacy browsers.
+since it is written in plain vanilla JavaScript. It was written with accessibility in mind and also supports legacy browsers (as ie8).
 
 |feature|**ComboBox.js**|datalist|dojo ComboBox|
 |---|---|---|---|
