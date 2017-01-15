@@ -5,6 +5,8 @@
  ** var cb = new ComboBox(element, false);
  *
  * the second argument (true/false) is optional, when set to true, the styling of the elements is all yours.
+ * Find the project on Github for more information:
+ * https://github.com/ThibaultJanBeyer/ComboBox.js
  */
 
 var ComboBox = function(container, customStyles) {

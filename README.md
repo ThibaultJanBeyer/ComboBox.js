@@ -39,6 +39,8 @@ play with it: http://codepen.io/ThibaultJanBeyer/pen/rjLgEL
 ```
 
 ##Turn it into a ComboBox:
+- (mandatory) Pass a single dom-node as first argument.
+- (optional, not recommended) set the second argument to true for full style controll.
 
 ```javascript
 var element = document.getElementById('MyComboBox');
