@@ -51,12 +51,14 @@ ComboBox.prototype.addEventListeners = function() {
 ComboBox.prototype.handleInput = function(e) {
   var code = this.getKey(e);
   if(code === 'ArrowDown') {
-    this.select.setAttribute('aria-hidden', 'false');
     this.select.focus();
   } else if(code === 'Escape') {
     this.hideSelect();
+  } else if(code === 'Enter') {
+    this.input.value = this.select.value;
+    this.hideSelect();
   } else {
-    this.handleWriting(e.target.value)
+    this.handleWriting(e.target.value);
   }
 
   return this;
@@ -87,13 +89,17 @@ ComboBox.prototype.isTextInOptions = function(text, options) {
 
 ComboBox.prototype.handleSelection = function(e) {
   var code = this.getKey(e);
-  if(code === 'Enter' || code === 'Escape') {
-    this.select.setAttribute('aria-hidden', 'true');
+  if(code === 'Escape') {
     this.select.blur();
-  } else if(e.target.value.substring(0,3) != '---') {
+    this.input.focus();
+  } else if(e.target.value.substring(0,3) != '---' && e.target.value != '') {
     this.input.value = e.target.value;
-  } else {
+  } else if(e.target.value != '') { 
     this.input.value = e.target.value.substring(4, e.target.value.length);
+  }
+  if(code === 'Enter') {
+    this.select.blur();
+    this.input.focus();
   }
 
   return this;
@@ -110,6 +116,7 @@ ComboBox.prototype.getKey = function(e) {
 };
 
 ComboBox.prototype.hideSelect = function() {
+  this.select.setAttribute('aria-hidden', 'true');
   this.select.style.pointerEvents = 'none';
   this.select.style.opacity = 0;
   this.select.tabIndex = -1;
@@ -117,6 +124,7 @@ ComboBox.prototype.hideSelect = function() {
 };
 
 ComboBox.prototype.showSelect = function() {
+  this.select.setAttribute('aria-hidden', 'false');
   this.select.style.pointerEvents = 'all';
   this.select.style.opacity = 1;
   this.select.tabIndex = 0;
