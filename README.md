@@ -47,9 +47,9 @@ var element = document.getElementById('MyComboBox');
 var cb = new ComboBox(element, false);
 ```
 
-Tadaaa! Enjoy your ComboBox :)
+Tadaaa! Enjoy your ComboBox :)  
 
-
+![ComboBox Example](https://thibaultjanbeyer.github.io/ComboBox.js/ComboBox.gif)  
 
 # Last Words
 
