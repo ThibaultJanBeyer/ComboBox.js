@@ -49,7 +49,7 @@ var cb = new ComboBox(element, false);
 
 Tadaaa! Enjoy your ComboBox :)  
 
-![ComboBox Example](https://thibaultjanbeyer.github.io/ComboBox.js/ComboBox.gif)  
+![ComboBox Example](http://kit.thibaultjanbeyer.com//assets/github/ComboBox.gif)  
 
 # Last Words
 
