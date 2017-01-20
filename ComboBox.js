@@ -28,10 +28,10 @@ var ComboBox = function(container, customStyles) {
   this.input.setAttribute('aria-label', 'Special inputfield with '+this.options.length+' prefilled options available, use the down arrow key to chose one or write your own text.');
   this.select.setAttribute('aria-hidden', 'true');
 
-  this.hideSelect();
   this.addEventListeners();
   this.createVisualHint();
 
+  this.hideSelect();
   if(!customStyles) this.setStyles();
 };
 
@@ -117,6 +117,8 @@ ComboBox.prototype.getKey = function(e) {
 
 ComboBox.prototype.hideSelect = function() {
   this.select.setAttribute('aria-hidden', 'true');
+  this.container.style.overflow = 'hidden';
+  this.select.style.left = '-9999999px';
   this.select.style.pointerEvents = 'none';
   this.select.style.opacity = 0;
   this.select.tabIndex = -1;
@@ -125,6 +127,8 @@ ComboBox.prototype.hideSelect = function() {
 
 ComboBox.prototype.showSelect = function() {
   this.select.setAttribute('aria-hidden', 'false');
+  this.container.style.overflow = 'visible';
+  this.select.style.left = '0';
   this.select.style.pointerEvents = 'all';
   this.select.style.opacity = 1;
   this.select.tabIndex = 0;
@@ -141,15 +145,13 @@ ComboBox.prototype.createVisualHint = function() {
 
 ComboBox.prototype.setStyles = function() {
   this.container.style.display = 'inline-block';
+  this.container.style.verticalAlign = 'top';
   this.container.style.position = 'relative';
   this.input.style.boxSizing = 'border-box';
   this.input.style.height = '100%';
   this.input.style.width = '100%';
   this.select.style.border = '1px solid lightgrey';
   this.select.style.borderTop = '0';
-  this.select.style.left = '0';
-  this.select.style.opacity = '0';
-  this.select.style.pointerEvents = '0';
   this.select.style.position = 'absolute';
   this.select.style.top = '100%';
   this.select.style.width = '100%';
