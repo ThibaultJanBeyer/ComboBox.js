@@ -42,6 +42,10 @@
   <script>
     var element = document.getElementsByClassName('ComboBox')[0];
     var cb = new ComboBox(element, false);
+
+    cb.onSelect(function(e) {
+      console.log(e);
+    });
   </script>
 
 </body>

@@ -51,6 +51,24 @@ Tadaaa! Enjoy your ComboBox :)
 
 ![ComboBox Example](http://kit.thibaultjanbeyer.com//assets/github/ComboBox.gif)  
 
+# Listening to changes (callback)
+
+The ComboBox provides a cool way to listen for changes. Just use `.onSelect` like so:
+
+```javascript
+// grab element
+var element = document.getElementById('MyComboBox');
+// initiate the ComboBox
+var cb = new ComboBox(element, false);
+// listen for user selections
+cb.onSelect(function(e) {
+  // do stuff
+  console.log(e);
+});
+// e is the ComboBox object. Thus:
+// e.value is the selection as a string.
+```
+
 # Last Words
 
 Don’t forget to star this repo and follow me on [github](https://github.com/ThibaultJanBeyer), [twitter](https://twitter.com/ThibaultBeyer) or [my blog](http://blog.thibaultjanbeyer.com) if you like the ComboBox.  
