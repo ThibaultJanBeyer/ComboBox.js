@@ -29,7 +29,7 @@ var ComboBox = function(container, customStyles) {
     element.className += ' cb--option';
   }
 
-  this.input.setAttribute('aria-label', 'Special inputfield with '+this.options.length+' prefilled options available, use the down arrow key to chose one or write your own text.');
+  this.input.setAttribute('aria-label', 'Special inputfield with '+this.options.length+' prefilled options available, use the down/up arrow keys to chose one or write your own text.');
   this.select.setAttribute('aria-hidden', 'true');
 
   this.hideSelect();
@@ -43,10 +43,11 @@ ComboBox.prototype.addEventListeners = function() {
   this.input.addEventListener('focus', this.showSelect.bind(this));
   this.input.addEventListener('blur', this.hideSelect.bind(this));
   this.input.addEventListener('keyup', this.handleInput.bind(this));
+
   this.select.addEventListener('focus', this.showSelect.bind(this));
   this.select.addEventListener('blur', this.hideSelect.bind(this));
   this.select.addEventListener('change', this.handleSelection.bind(this));
-  this.select.addEventListener('keypress', this.handleSelection.bind(this));
+  this.select.addEventListener('keydown', this.handleSelection.bind(this));
   this.select.addEventListener('click', this.handleSelection.bind(this));
 
   return this;
@@ -59,10 +60,8 @@ ComboBox.prototype.handleInput = function(e) {
   } else if(code === 'Escape') {
     this.hideSelect();
   } else if(code === 'Enter') {
-    if (this.select.value != '') {
-      e.preventDefault();
-      this.input.value = this.select.value;
-      this.hideSelect();
+    if (this.select.value && this.select.value != '') {
+      this.setValue(this.select.value, true);
     }
   } else {
     this.handleWriting(e.target.value);
@@ -99,15 +98,28 @@ ComboBox.prototype.handleSelection = function(e) {
   if(code === 'Escape') {
     this.select.blur();
     this.input.focus();
-  } else if(e.target.value.substring(0,3) != '---' && e.target.value != '') {
-    this.input.value = e.target.value;
-  } else if(e.target.value != '') { 
-    this.input.value = e.target.value.substring(4, e.target.value.length);
+  } else {
+    this.setValue(e.target.value, (code === 'Enter') ? true : false);
   }
-  if(code === 'Enter') {
-    this.select.blur();
+
+  return this;
+};
+
+ComboBox.prototype.setValue = function(value, hideSelect) {
+  if(value == '') return this;  // do nothing if value is empty
+
+  if(value.substring(0, 3) != '---') {  // check if value is not the fallback option
+    this.input.value = value;
+  } else {  // if it is, don’t add the '--- '
+    this.input.value = value.substring(4, value.length);
+  }
+
+  if(hideSelect) {
+    this.hideSelect();
     this.input.focus();
   }
+
+  // @TODO add trigger event here
 
   return this;
 };
@@ -155,8 +167,6 @@ ComboBox.prototype.setStyles = function() {
   this.select.style.border = '1px solid lightgrey';
   this.select.style.borderTop = '0';
   this.select.style.left = '0';
-  this.select.style.opacity = '0';
-  this.select.style.pointerEvents = '0';
   this.select.style.position = 'absolute';
   this.select.style.top = '100%';
   this.select.style.width = '100%';
