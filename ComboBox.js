@@ -24,6 +24,10 @@ var ComboBox = function(container, customStyles) {
   this.options = this.select.options;
   this.select.value = this.options[0].innerHTML;
   this.select.value = [];
+  for (var i = 0; i < this.options.length; i++) {
+    var element = this.options[i];
+    element.className += ' cb--option';
+  }
 
   this.input.setAttribute('aria-label', 'Special inputfield with '+this.options.length+' prefilled options available, use the down arrow key to chose one or write your own text.');
   this.select.setAttribute('aria-hidden', 'true');
@@ -55,8 +59,11 @@ ComboBox.prototype.handleInput = function(e) {
   } else if(code === 'Escape') {
     this.hideSelect();
   } else if(code === 'Enter') {
-    this.input.value = this.select.value;
-    this.hideSelect();
+    if (this.select.value != '') {
+      e.preventDefault();
+      this.input.value = this.select.value;
+      this.hideSelect();
+    }
   } else {
     this.handleWriting(e.target.value);
   }
