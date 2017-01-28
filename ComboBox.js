@@ -56,6 +56,7 @@ ComboBox.prototype.addEventListeners = function() {
 ComboBox.prototype.handleInput = function(e) {
   var code = this.getKey(e);
   if(code === 'ArrowDown') {
+    this.handleWriting(e.target.value);
     this.select.focus();
   } else if(code === 'Escape') {
     this.hideSelect();
@@ -73,11 +74,10 @@ ComboBox.prototype.handleInput = function(e) {
 ComboBox.prototype.handleWriting = function(text) {
   var option = this.isTextInOptions(text, this.options);
   if(option && text != '') {
+    this.setOptionZero(text);
     this.select.value = option;
   } else {
-    var setText = (text != '') ? '--- ' + text : '---';
-    this.options[0].innerHTML = setText;
-    this.select.value = setText;
+    this.select.value = this.setOptionZero(text);
     this.select.value = [];
   }
 
@@ -93,11 +93,16 @@ ComboBox.prototype.isTextInOptions = function(text, options) {
   return false;
 };
 
+ComboBox.prototype.setOptionZero = function(text) {
+  var setText = (text != '') ? '--- ' + text : '---';
+  this.options[0].innerHTML = setText;
+  return setText;
+};
+
 ComboBox.prototype.handleSelection = function(e) {
   var code = this.getKey(e);
   if(code === 'Escape') {
-    this.select.blur();
-    this.input.focus();
+    this.setValue(this.options[0].value, true);
   } else {
     this.setValue(e.target.value, (code === 'Enter') ? true : false);
   }
