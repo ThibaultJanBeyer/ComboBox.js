@@ -164,6 +164,8 @@ ComboBox.prototype.getKey = function(e) {
 
 ComboBox.prototype.hideSelect = function() {
   this.select.setAttribute('aria-hidden', 'true');
+  this.container.style.overflow = 'hidden';
+  this.select.style.top = '0';
   this.select.style.left = '-10000px';
   this.select.style.pointerEvents = 'none';
   this.select.style.opacity = 0;
@@ -173,6 +175,8 @@ ComboBox.prototype.hideSelect = function() {
 
 ComboBox.prototype.showSelect = function() {
   this.select.setAttribute('aria-hidden', 'false');
+  this.container.style.overflow = 'visible';
+  this.select.style.top = '100%';
   this.select.style.left = '0';
   this.select.style.pointerEvents = 'all';
   this.select.style.opacity = 1;
@@ -192,6 +196,7 @@ ComboBox.prototype.setStyles = function() {
   this.container.style.display = 'inline-block';
   this.container.style.verticalAlign = 'top';
   this.container.style.position = 'relative';
+  this.container.style.overflow = 'hidden';
   this.input.style.boxSizing = 'border-box';
   this.input.style.height = '100%';
   this.input.style.width = '100%';
